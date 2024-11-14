@@ -1,7 +1,7 @@
 
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
-# << Project Title >>
+# Maze Run
 ## CS110 B1 Final Project  Semester 1, 2024
 
 ## Team Members
