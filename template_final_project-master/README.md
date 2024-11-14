@@ -30,11 +30,11 @@ In the Maze Run, we will be moving a character through a complex maze. The maze 
 
 ### Features
 
-1. << Feature 1 >>
-2. << Feature 2 >>
-3. << Feature 3 >>
-4. << Feature 4 >>
-5. << Feature 5 >>
+1. Start menu
+2. End game display
+3. Moveable character (with keyboard arrows)
+4. Trivia display
+5. life system (with quit feature)
 
 ### Classes
 
