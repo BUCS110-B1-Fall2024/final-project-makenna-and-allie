@@ -38,7 +38,9 @@ In the Maze Run, we will be moving a character through a complex maze. The maze 
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
+- Character: creates a character (turtle object) that will move throughout the maze based on user input. Has functions to move
+forward, backward, right and left.
+- Trivia: 
 
 ## ATP
 
