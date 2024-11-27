@@ -44,9 +44,6 @@ forward, backward, right and left.
 
 ## ATP
 
-
-|  1                   | Run Counter Program  |GUI window appears with count = 0  |
-|  2                   | click count button   | display changes to count = 1      |
 |Test Description 1:   
 
     Tests whether or not the sprite/character moves with  the use of all 4 cursor control key.
@@ -91,5 +88,6 @@ Test Description 5:
 
 Procedure:
 
-    
+    1. Lose the game, Expected Results: Game over screen shows up with a try again button and the end score.
+    2. Win the game, Expected Results: Game over screen shows up with a play again button and the end score.
 
