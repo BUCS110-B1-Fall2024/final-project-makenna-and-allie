@@ -1,6 +1,6 @@
 class Controller:
-    import character from character
-    import trivia from Trivia
+    from character import Character
+    from trivia import Trivia
     
     def __init__(self):
         """
@@ -18,6 +18,7 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit() exit()
+            
         #2. detect collisions and update models, ask character where
         # to move, etc.
         #3. Redraw next frame
