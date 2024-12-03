@@ -1,5 +1,7 @@
+import turtle
+
 class Character:
-    import turtle
+    
     
     def __init__ (self, x, y, img_file):
         """ Initializes character (turtle) that will play game
