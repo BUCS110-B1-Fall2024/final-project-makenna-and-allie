@@ -21,6 +21,7 @@ class Controller:
         
         begin = setup.Setup("black")
         running = True
+        begin.create()
         
         while running:
             for event in pygame.event.get():
