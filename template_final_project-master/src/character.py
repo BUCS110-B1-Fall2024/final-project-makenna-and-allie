@@ -9,7 +9,7 @@ class Character:
         - img_file : str - maze file
         """
         self.turtle = turtle.Turtle()
-        self.turtle.goto(self.x, self.y)
+        self.turtle.goto(x, y)
         self.file = img_file
         
     def move_left(self):

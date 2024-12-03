@@ -40,12 +40,54 @@ In the Maze Run, we will be moving a character through a complex maze. The maze 
 
 - Character: creates a character (turtle object) that will move throughout the maze based on user input. Has functions to move
 forward, backward, right and left.
-- Trivia: 
+- Trivia: Creates a trivia object, that will be displayed throughout certain checkpoints in the maze, uses user input and contains a function that checks if the input is correct. 
 
 ## ATP
 
-| Step                 |Procedure             |Expected Results                   |
-|----------------------|:--------------------:|----------------------------------:|
-|  1                   | Run Counter Program  |GUI window appears with count = 0  |
-|  2                   | click count button   | display changes to count = 1      |
-etc...
+|Test Description 1:   
+
+    Tests whether or not the sprite/character moves with  the use of all 4 cursor control key.
+
+Procedure:
+
+    Press up key,  Expected Results: Character moves up
+    Press down key,  Expected Results: Character moves down
+    Press right key,  Expected Results: Character moves right
+    Press left key,  Expected Results: Character moves left
+
+Test Description 2:   
+
+    Checks that the begin and start screen button works.
+
+Procedure:
+
+    Click the begin button, Expected: The maze screen appears and the maze begins.
+    Click the level button, Expected: Level adusjts from easy to hard. 
+    Click the theme buttons, Expected: Background image of the maze changes.
+
+Test Description 3: 
+
+    Tests that the music plays at the right times.
+
+Procedure:
+
+    Click the begin button, Expected Results: Music begins when the screen changes.
+    Screen changes from maze to the tend screen, Expected Results: The music stops when the game ends.
+
+Test Desription 4:
+
+    Make sure the sprite/character loses a live when it runs into the maze border.
+
+Procedure:
+
+    Move the arrows until the charcter runs into the border, Expected Results: A live is lost. 
+
+Test Description 5:
+
+    Make sure that the game over screen displays the right screen when you lose and when you win. 
+
+Procedure:
+
+    1. Lose the game, Expected Results: Game over screen shows up with a try again button and the end score.
+    2. Win the game, Expected Results: Game over screen shows up with a play again button and the end score.
+
