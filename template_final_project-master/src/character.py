@@ -10,16 +10,17 @@ class Character:
         """
         self.turtle = turtle.Turtle()
         self.turtle.goto(x, y)
+        self.turtle.x = x
+        self.turtle.y = y
         self.file = img_file
         
     def move_left(self):
-         """ Moves character left 1
+        """ Moves character left 1
         args: None
         return: None
         """
-        x_coordinate = self.turtle.xcor()
-        y_coordinate = self.turtle.ycor()
-        self.turtle.goto(x_coordinate-1, y_coordinate)
+        x, y = self.pos()
+        self.turtle.goto(x-1, y)
     
     def move_right(self):
         """ Moves character right 1
