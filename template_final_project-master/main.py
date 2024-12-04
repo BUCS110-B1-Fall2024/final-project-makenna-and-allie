@@ -1,6 +1,7 @@
 import pygame
 from Setup
 from src.character import Character
+#import your controller
 
 def main():
     pygame.init()
