@@ -1,7 +1,6 @@
+import turtle
+
 class Character:
-    import turtle
-    import pygame
-    
     def __init__ (self, screen):
         """ Initializes character (turtle) that will play game
         args: 
@@ -10,6 +9,12 @@ class Character:
         self.turt = turtle.Turtle()
         self.turtle.goto(0, 0)
         self.screen = screen
+        
+        self.screen.listen()
+        self.screen.onkey(self.move_forward, "Up")
+        self.screen.onkey(self.move_backwards, "Down")
+        self.screen.onkey(self.move_left, "Left")
+        self.screen.onkey(self.move_right, "Right")
         
     def move_forward(self):
         """ Moves character forward 1
@@ -43,11 +48,7 @@ class Character:
         self.turtle.setheading(0)
         self.turtle.forward(1)
 
-    self.screen.listen()
-    self.screen.onkey(move_forward, "Up")
-    self.screen.onkey(move_backwards, "Down")
-    self.screen.onkey(move_left, "Left")
-    self.screen.onkey(move_right, "Right")
-
-    self.screen.mainloop()
+    #screen = turtle.Screen()
+    #character = Character(screen)
+    #screen.mainloop()
             
