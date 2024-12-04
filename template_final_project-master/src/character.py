@@ -1,18 +1,16 @@
 class Character:
     import turtle
     
-    def __init__ (self, x, y, img_file):
+    def __init__ (self, x, y):
         """ Initializes character (turtle) that will play game
         args: 
         - x : int - starting x coordinate
         - y : int - starting y coordinate
-        - img_file : str - maze file
         """
         self.turtle = turtle.Turtle()
         self.turtle.goto(x, y)
         self.turtle.x = x
         self.turtle.y = y
-        self.file = img_file
         
     def move_left(self):
         """ Moves character left 1
