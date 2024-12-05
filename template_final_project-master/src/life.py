@@ -1,4 +1,5 @@
 class Life:
+<<<<<<< HEAD
     def __init__(self, screen, max_lives=3):
         """ Initializes Life class that will form the 
         system to keep track of how many lives our character
@@ -26,3 +27,17 @@ class Life:
         returns: None
         """
         self.lives
+=======
+    def __init__(self):
+        
+    #def lose_life(self):
+        self.x
+        
+    #def check4rectangles():
+        #if character pos == collidepoint(rect)
+            #update_lives()
+        
+        
+    #def update_lives(self):
+        
+>>>>>>> 99724f452b2748f339fd641fe4190de17054aa59

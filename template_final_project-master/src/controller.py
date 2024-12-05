@@ -18,8 +18,12 @@ class Controller:
         pygame.display.set_caption('Maze')
         
         self.begin = Setup("black", self.screen)
+<<<<<<< HEAD
+        self.grid = Maze("white", self.screen, 3)
+=======
         self.grid = Maze("white", self.screen)
         self.character = Character(self.screen, "pink")
+>>>>>>> 4acec5b9be21dddafddba2f8b284b38454281166
         
         self.gravity = 1
         self.jump_speed = -15
@@ -47,6 +51,27 @@ class Controller:
                 if event.type == pygame.QUIT:
                     pygame.quit() 
                     self.running = False
+<<<<<<< HEAD
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    pos = pygame.mouse.get_pos()
+                    rect = pygame.Rect(50, 250, 545, 200)
+                    if rect.collidepoint(pos):
+                        maze_screen = pygame.display.set_mode((1200,800))
+                        maze_screen.fill('black')
+                        self.grid.drawRect()
+                        tom = Character(maze_screen, 'purple', 50, 50)
+                        sprite = pygame.sprite.Group()
+                        sprite.add(tom)
+                        sprite.update()
+                        sprite.draw(maze_screen)
+                        pygame.display.flip()
+                    
+        #2. detect collisions and update models, ask character where
+        # to move, etc.
+          #if self.grid.check4rectangles(self.character.rect):
+            #if self.current_lives.lose_game():
+                #self.running = False
+=======
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:  
                         self.character.move_up()
@@ -67,6 +92,7 @@ class Controller:
         
         pygame.display.flip()
         
+>>>>>>> 4acec5b9be21dddafddba2f8b284b38454281166
         #3. Redraw next frame
         
         

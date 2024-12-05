@@ -24,8 +24,11 @@ class Maze:
         for box in range(150, 1150, 150):
             rand = random.randint(0, 500)
             rect = Cell(box, 0, self.screen, rand)
+<<<<<<< HEAD
             rect = Cell.Cell(box, 0, self.screen, rand)
             self.rectangles.append(rect)
+=======
+>>>>>>> 99724f452b2748f339fd641fe4190de17054aa59
             rect.draw()
     
     def check4rectangles(self, char_rect):

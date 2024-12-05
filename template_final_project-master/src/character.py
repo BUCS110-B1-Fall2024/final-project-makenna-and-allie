@@ -1,19 +1,34 @@
 import turtle
 import pygame
 
-class Character:
-    def __init__ (self, screen, color):
+class Character(pygame.sprite.Sprite):
+    def __init__ (self, screen, color, w, h):
         """ Initializes character (turtle) that will play game
         args: 
         screen (display) - displays the screen
         color (string) - color of character
         """
+        super().__init__()
         self.screen = screen
+        self.image = pygame.Surface([w,h])
+        self.image.fill(color)
+
         self.color = color
         self.x = 10
-        self.y = 10
-        pygame.draw.rect(self.screen, self.color, (10,self.screen.get_height()/2, self.x, self.y))
+        self.y = 500
+        pygame.draw.rect(self.image, color, pygame.Rect(self.x, self.y, w, h))
+        self.rect = self.image.get_rect()
         
+<<<<<<< HEAD
+       # self.screen.listen()
+        #self.screen.onkey(self.move_forward, "Up")
+        #self.screen.onkey(self.move_backwards, "Down")
+        #self.screen.onkey(self.move_left, "Left")
+        #self.screen.onkey(self.move_right, "Right")
+        
+        #self.move_forward()
+    
+=======
         self.gravity = 1
         self.velocity = 0
         self.jump_strength = -15
@@ -26,6 +41,7 @@ class Character:
         """
         pygame.draw.rect(self.screen, self.color, self.rect)
         
+>>>>>>> 4acec5b9be21dddafddba2f8b284b38454281166
     def move_forward(self):
         """ Moves character forward repeatedly, using gravity
         args: None
