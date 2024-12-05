@@ -4,6 +4,10 @@ from src import setup
 from src import maze
 
 class Controller:
+<<<<<<< HEAD
+=======
+    from character import Character
+>>>>>>> 9afc2476c767d885fb9132cb900d4a6b83e784f6
     
     def __init__(self):
         """
@@ -23,13 +27,22 @@ class Controller:
         running = True
         
         begin.create()
+<<<<<<< HEAD
        
+=======
+        grid = Maze.Maze("white", screen)
+        grid.drawRect()
+>>>>>>> 9afc2476c767d885fb9132cb900d4a6b83e784f6
         pygame.display.flip()
         
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+<<<<<<< HEAD
                     pygame.quit() 
+=======
+                    #pygame.quit() exit()
+>>>>>>> 9afc2476c767d885fb9132cb900d4a6b83e784f6
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
@@ -37,8 +50,13 @@ class Controller:
                     if rect.collidepoint(pos):
                         screen = pygame.display.set_mode((1200,600))
                         screen.fill('black')
+<<<<<<< HEAD
                         grid = maze.Maze("white", screen)
                         grid.drawRect()
+=======
+                        grid = Maze.Maze(5,5, screen, 100,"white")
+                        grid.drawGrid()
+>>>>>>> 9afc2476c767d885fb9132cb900d4a6b83e784f6
                         pygame.display.flip()
                     
             
@@ -49,6 +67,6 @@ class Controller:
         
         #4. Display next frame
         #pygame.display.flip()
-        
+    mainloop()
     
     
