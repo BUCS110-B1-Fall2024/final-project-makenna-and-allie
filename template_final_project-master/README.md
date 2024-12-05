@@ -76,7 +76,7 @@ Test Desription 4:
 
 Procedure:
 
-    Move the arrows until the charcter runs into the border, Expected Results: A live is lost. 
+    Move the arrows until the charcter runs into the border, Expected Results: A life is lost. 
 
 Test Description 5:
 
