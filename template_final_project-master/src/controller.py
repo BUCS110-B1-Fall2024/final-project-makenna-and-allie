@@ -18,9 +18,18 @@ class Controller:
         pygame.display.set_caption('Maze')
         
         self.begin = Setup("black", self.screen)
+<<<<<<< HEAD
         self.grid = Maze("white", self.screen, 3)
+=======
+        self.grid = Maze("white", self.screen)
+        self.character = Character(self.screen, "pink")
+>>>>>>> 4acec5b9be21dddafddba2f8b284b38454281166
         
-        #self.character = Character(self.screen)
+        self.gravity = 1
+        self.jump_speed = -15
+        self.velocity = 0
+        self.game_over = False
+        self.score = 0
         
         self.running = True
         
@@ -42,6 +51,7 @@ class Controller:
                 if event.type == pygame.QUIT:
                     pygame.quit() 
                     self.running = False
+<<<<<<< HEAD
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
                     rect = pygame.Rect(50, 250, 545, 200)
@@ -61,8 +71,32 @@ class Controller:
           #if self.grid.check4rectangles(self.character.rect):
             #if self.current_lives.lose_game():
                 #self.running = False
+=======
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:  
+                        self.character.move_up()
+                        
+        self.character.move_forward
+        
+        #2. detect collisions and update models, ask character where
+        # to move, etc.
+        self.grid.drawRect()
+        if self.grid.check4rectangles(self.character.rect):
+            if self.current_lives.lose_game():
+                self.running = False
+           
+        self.screen.fill(0,0,0)
+        self.character.create_character()
+        self.grid.drawRect()
+        self.curent_lives.display()
+        
+        pygame.display.flip()
+        
+>>>>>>> 4acec5b9be21dddafddba2f8b284b38454281166
         #3. Redraw next frame
         
+        
+        pygame.display.flip()
         #4. Display next frame
         #pygame.display.flip()
  
