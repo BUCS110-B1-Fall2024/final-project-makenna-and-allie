@@ -4,9 +4,9 @@ from src import trivia
 from src import setup
 from src import maze
 
-
 class Controller:
-    
+    from character import Character
+    from trivia import Trivia
     
     def __init__(self):
         """
@@ -31,6 +31,7 @@ class Controller:
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    pygame.quit() exit()
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
@@ -42,10 +43,6 @@ class Controller:
                         grid.drawGrid()
                         pygame.display.flip()
                     
-                    
-                    
-                    
-            
             
         #2. detect collisions and update models, ask character where
         # to move, etc.

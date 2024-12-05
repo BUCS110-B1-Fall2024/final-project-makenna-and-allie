@@ -1,6 +1,5 @@
 import pygame
-from src import controller  #import your controller
-
+#import your controller
 
 def main():
     pygame.init()
@@ -8,6 +7,17 @@ def main():
     control.mainloop()
     #Create an instance on your controller object
     #Call your mainloop
+    begin = Setup.Setup("grey")
+    begin.create()
+    mazey = Character(0,0)
+    mazey.move_left()
+    running = True 
+
+    while running:
+            
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
     
     ###### NOTHING ELSE SHOULD GO IN main(), JUST THE ABOVE 3 LINES OF CODE ######
 
