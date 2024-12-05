@@ -1,6 +1,6 @@
 
 import pygame
-from src import cell
+from src.cell import Cell
 import random
 import math
 
@@ -13,7 +13,7 @@ class Maze:
     def drawRect(self):   
         for box in range(150,1150, 150):
             rand = random.randint(0, 500)
-            rect = cell.Cell(box, 0, self.screen, rand)
+            rect = Cell.Cell(box, 0, self.screen, rand)
             rect.draw()
             
         
