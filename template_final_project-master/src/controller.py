@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import pygame
 from character import Character 
 from setup import Setup
 from maze import Maze
+=======
+import pygame 
+from src import character 
+from src import setup
+from src import maze
+>>>>>>> d3791ecdafcd37d2230009efbd02582ff7a61402
 
 class Controller:
-    from character import Character
     
     def __init__(self):
         """
@@ -26,26 +32,38 @@ class Controller:
         returns: string - if you won the game
         """
         #1- Handle events
+<<<<<<< HEAD
         running = True
         
         self.begin.create()
         #grid = Maze.Maze("white", screen)
         grid.drawRect()
+=======
+        screen = pygame.display.set_mode((1200,600))
+        pygame.display.set_caption('Maze')
+        begin = setup.Setup("black", screen)
+        running = True
+        
+        begin.create()
+       
+>>>>>>> d3791ecdafcd37d2230009efbd02582ff7a61402
         pygame.display.flip()
         
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    #pygame.quit() exit()
+                    pygame.quit() 
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
                     rect = pygame.Rect(50, 450, 545, 200)
                     if rect.collidepoint(pos):
-                        screen = pygame.display.set_mode((500,500))
+                        screen = pygame.display.set_mode((1200,600))
                         screen.fill('black')
-                        grid = Maze.Maze(5,5, screen, 100,"white")
-                        grid.drawGrid()
+                        grid = maze.Maze("white", screen)
+                        grid.drawRect()
+                        tom = character.Character(screen)
+                        tom.set_color("blue")
                         pygame.display.flip()
                     
             
@@ -56,6 +74,6 @@ class Controller:
         
         #4. Display next frame
         #pygame.display.flip()
-    mainloop()
+ 
     
     

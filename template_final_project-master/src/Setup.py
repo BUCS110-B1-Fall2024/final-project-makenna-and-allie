@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 import pygame
 from Button import Button
+=======
+import pygame 
+from src import button
+
+
+>>>>>>> d3791ecdafcd37d2230009efbd02582ff7a61402
 
 class Setup:
     

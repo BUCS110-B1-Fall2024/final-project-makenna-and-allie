@@ -11,9 +11,12 @@ class Cell:
         self.height = height 
         
     def draw(self):
-        pygame.draw.rect(self.screen, self.color, pygame.Rect(self.x, self.y, 10, self.height))
-        #pygame.draw.rect(self.screen, self.bord_col, pygame.Rect(self.x, self.y, 10, self.height),2)
-        
+        pygame.draw.rect(self.screen, self.color, pygame.Rect(self.x, self.y, 50, self.height))
+        pygame.draw.rect(self.screen, self.bord_col, pygame.Rect(self.x, self.y, 50, self.height),2)
+        scr_h =  self.screen.get_height()
+        bottom = scr_h - (self.height + 40)
+        pygame.draw.rect(self.screen, self.color, pygame.Rect(self.x , self.y + self.height + 40, 50, bottom))
+        pygame.draw.rect(self.screen, self.bord_col, pygame.Rect(self.x, self.y + self.height + 40, 50, bottom),2)
 
         
     def get_cord(self):
