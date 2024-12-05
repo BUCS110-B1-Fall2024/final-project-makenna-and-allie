@@ -2,7 +2,7 @@ import pygame
 
 
 
-import button
+from Button import Button
 
 
 

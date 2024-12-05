@@ -1,5 +1,5 @@
 import pygame
-from src import button
+from Button import Button
 
 class Maze:
     

@@ -9,8 +9,6 @@ def main():
     #Call your mainloop
     begin = Setup.Setup("grey")
     begin.create()
-    mazey = Character(0,0)
-    mazey.move_left()
     running = True 
 
     while running:
