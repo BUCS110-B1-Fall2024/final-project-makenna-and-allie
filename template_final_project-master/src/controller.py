@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-import pygame
-from character import Character 
-from setup import Setup
-from maze import Maze
-=======
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
 import pygame 
-from src import character 
-from src import setup
-from src import maze
->>>>>>> d3791ecdafcd37d2230009efbd02582ff7a61402
+from src.character import Character 
+from src.setup import Setup
+from src.maze import Maze
 
 class Controller:
     
@@ -26,47 +22,36 @@ class Controller:
         
         self.character = Character(self.screen)
         
+        self.running = True
+        
     def mainloop(self):
         """ Runs the game, using the Character and Trivia classes
         args: None
         returns: string - if you won the game
         """
         #1- Handle events
-<<<<<<< HEAD
-        running = True
-        
-        self.begin.create()
-        #grid = Maze.Maze("white", screen)
-        grid.drawRect()
-=======
-        screen = pygame.display.set_mode((1200,600))
+        """screen = pygame.display.set_mode((1200,600))
         pygame.display.set_caption('Maze')
         begin = setup.Setup("black", screen)
-        running = True
-        
-        begin.create()
-       
->>>>>>> d3791ecdafcd37d2230009efbd02582ff7a61402
+        """
+        self.begin.create()
         pygame.display.flip()
         
-        while running:
+        while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit() 
-                    running = False
+                    self.running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
                     rect = pygame.Rect(50, 450, 545, 200)
                     if rect.collidepoint(pos):
-                        screen = pygame.display.set_mode((1200,600))
-                        screen.fill('black')
-                        grid = maze.Maze("white", screen)
-                        grid.drawRect()
-                        tom = character.Character(screen)
-                        tom.set_color("blue")
+                        #screen = pygame.display.set_mode((1200,600))
+                        self.screen.fill('black')
+                        self.grid.drawRect()
+                        self.character.set_color("blue")
                         pygame.display.flip()
                     
-            
         #2. detect collisions and update models, ask character where
         # to move, etc.
         
@@ -75,5 +60,5 @@ class Controller:
         #4. Display next frame
         #pygame.display.flip()
  
-    
+
     
