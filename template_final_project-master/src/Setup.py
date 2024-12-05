@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 import pygame
-from Button import Button
-=======
-import pygame 
-from src import button
-
-
->>>>>>> d3791ecdafcd37d2230009efbd02582ff7a61402
+from src.button import Button
 
 class Setup:
     
@@ -24,20 +17,20 @@ class Setup:
         
         pygame.display.flip()
 
-        button1 = button.Button(50, 30, 1100, 400, 'blue', self.screen, "Directions:", 'red', 5)
+        button1 = Button.button(50, 30, 1100, 400, 'blue', self.screen, "Directions:", 'red', 5)
         button1.draw()
         
         pygame.display.flip()
 
-        button2 = button.Button(50, 450, 545, 200, 'grey', self.screen, "Click to begin!", 'red', 5)
+        button2 = Button.Button(50, 450, 545, 200, 'grey', self.screen, "Click to begin!", 'red', 5)
         
         button2.draw()
 
         pygame.display.flip()
 
-        button3 = button.Button(605, 450, 182, 200, 'white', self.screen, "Easy", "white", 5)
-        button4 = button.Button(787, 450, 182, 200, 'white', self.screen, "Medium", "white", 5)
-        button5 = button.Button(968, 450, 182, 200, 'white', self.screen, "Hard", "white", 5)
+        button3 = Button.Button(605, 450, 182, 200, 'white', self.screen, "Easy", "white", 5)
+        button4 = Button.Button(787, 450, 182, 200, 'white', self.screen, "Medium", "white", 5)
+        button5 = Button.Button(968, 450, 182, 200, 'white', self.screen, "Hard", "white", 5)
         button3.draw()
         button4.draw()
         button5.draw()
