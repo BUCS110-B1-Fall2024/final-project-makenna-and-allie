@@ -1,12 +1,10 @@
 import pygame
 from character import Character 
-from trivia import Trivia 
 from Setup import Setup
 from maze import Maze
 
 class Controller:
     from character import Character
-    from trivia import Trivia
     
     def __init__(self):
         """
