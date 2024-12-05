@@ -5,7 +5,7 @@ class Character:
     def __init__ (self, screen, color):
         """ Initializes character (turtle) that will play game
         args: 
-        screen (display) - screen of the maze
+        screen (display) - displays the screen
         color (string) - color of character
         """
         self.screen = screen
@@ -20,10 +20,14 @@ class Character:
         self.is_jumping = False
         
     def create_character(self):
+        """ Draws the rectangle that will be the character
+        args: None
+        returns: None
+        """
         pygame.draw.rect(self.screen, self.color, self.rect)
         
     def move_forward(self):
-        """ Moves character forward repeatedly
+        """ Moves character forward repeatedly, using gravity
         args: None
         return: None
         """
@@ -37,7 +41,7 @@ class Character:
             self.rect.top = 0
             
     def move_up(self):
-        """ Moves character up 1
+        """ Moves character up, in a jumping motion
         args: None
         return: None
         """

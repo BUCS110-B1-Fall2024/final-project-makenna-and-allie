@@ -1,30 +1,28 @@
-<<<<<<< HEAD
 class Life:
-    def __init__(self):
-=======
-class Life():
-    def __init__(self, screen, max_lives=2):
-        """ Initializes life system for the character
-        args: screen (display) - creates the screen 
-        max_lives (int) - initializes the number of 
-        lives the character starts with
+    def __init__(self, screen, max_lives=3):
+        """ Initializes Life class that will form the 
+        system to keep track of how many lives our character
+        has left, based off maze collisions
+        args: screen (display) - displays the screen
+        max_lives (int) - sets the number of lives the character starts
+        with, which is 3
         """
         self.screen = screen
         self.max_lives = max_lives
         self.current_lives = max_lives
->>>>>>> be0fc92b76070771ee0fbe265a7bc0a9f09ba7f6
         
     def lose_life(self):
-        self.x
+        """ Takes away one of the user's lives if
+        they have any left
+        args: None
+        returns: None
+        """
+        if self.current_lives>0:
+            self.lives-=1
         
-<<<<<<< HEAD
-    def check4rectangles():
-        #if character pos == collidepoint(rect)
-            #update_lives()
-        
-        
-    def update_lives(self):
-=======
     def lose_game(self):
-        
->>>>>>> be0fc92b76070771ee0fbe265a7bc0a9f09ba7f6
+        """ User loses the game if they hit zero lives
+        args: None
+        returns: None
+        """
+        self.lives

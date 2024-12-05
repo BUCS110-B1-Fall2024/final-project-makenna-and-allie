@@ -1,29 +1,38 @@
 
 import pygame
-from src.cell import Cell
+from cell import Cell
 import random
 import math
 
 class Maze:
     
-    def __init__(self, color, screen, current_lives):
-        self.color = color
+    def __init__(self, screen, current_lives):
+        """ Initializes the Maze class that will create our 
+        maze of rectangles and check for collisions
+        args: screen (display) - displays the screen
+        current_lives (int) - current lives left for character
+        """
         self.screen = screen
         self.current_lives = current_lives
-        self.ractangles = []
+        self.rectangles = []
         
-    def drawRect(self):   
-        for box in range(150,1150, 150):
+    def drawRect(self):  
+        """ Randomly draw different sized rectangles to form a maze
+        args: None
+        returns: None
+        """ 
+        for box in range(150, 1150, 150):
             rand = random.randint(0, 500)
-<<<<<<< HEAD
             rect = Cell(box, 0, self.screen, rand)
-=======
             rect = Cell.Cell(box, 0, self.screen, rand)
             self.rectangles.append(rect)
->>>>>>> be0fc92b76070771ee0fbe265a7bc0a9f09ba7f6
             rect.draw()
     
     def check4rectangles(self, char_rect):
+        """ Checks to se if our character has a collision in the maze
+        args: char_rect (rectangle) - our character
+        returns (boolean) - whether a collision occurred or not
+        """
         for rect in self.rectangles:
             if char_rect.colliderect(rect.rect):
                 self.current_lives.lose_life()
