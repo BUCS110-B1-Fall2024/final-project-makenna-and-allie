@@ -1,10 +1,12 @@
 import pygame
-from src.Setup import Setup
+from Setup
 from src.character import Character
 #import your controller
 
 def main():
     pygame.init()
+    control = controller.Controller()
+    control.mainloop()
     #Create an instance on your controller object
     #Call your mainloop
     begin = Setup.Setup("grey")
