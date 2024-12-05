@@ -5,8 +5,6 @@ from src import setup
 from src import maze
 
 class Controller:
-    from character import Character
-    from trivia import Trivia
     
     def __init__(self):
         """
@@ -20,28 +18,29 @@ class Controller:
         returns: string - if you won the game
         """
         #1- Handle events
-        screen = pygame.display.set_mode((500,500))
+        screen = pygame.display.set_mode((1200,600))
         pygame.display.set_caption('Maze')
         begin = setup.Setup("black", screen)
         running = True
         
         begin.create()
+        grid = maze.Maze("white", screen)
+        grid.drawRect()
         pygame.display.flip()
         
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit() exit()
+                    pygame.quit().exit()
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
                     rect = pygame.Rect(50, 450, 545, 200)
-                    if rect.collidepoint(pos):
-                        screen = pygame.display.set_mode((500,500))
-                        screen.fill('black')
-                        grid = maze.Maze(5,5, screen, 100,"white")
-                        grid.drawGrid()
-                        pygame.display.flip()
+                    #if rect.collidepoint(pos):
+                        #screen = pygame.display.set_mode((1200,600))
+                        #screen.fill('black')
+                        
+                        #pygame.display.flip()
                     
             
         #2. detect collisions and update models, ask character where
