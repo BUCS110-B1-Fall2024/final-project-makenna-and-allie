@@ -35,12 +35,12 @@ class Controller:
                     pos = pygame.mouse.get_pos()
                     rect = pygame.Rect(50, 450, 545, 200)
                     if rect.collidepoint(pos):
-                        screen = pygame.display.set_mode((1200,600))
+                        screen = pygame.display.set_mode((1200,800))
                         screen.fill('black')
                         grid = maze.Maze("white", screen)
                         grid.drawRect()
-                        tom = character.Character(screen)
-                        tom.set_color("blue")
+                        #tom = character.Character(screen)
+                        #tom.set_color("blue")
                         pygame.display.flip()
                     
             
