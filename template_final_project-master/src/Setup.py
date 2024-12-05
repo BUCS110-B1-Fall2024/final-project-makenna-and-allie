@@ -1,8 +1,5 @@
-import pygame
-
-
-
-import button
+import pygame 
+from src import button
 
 
 
