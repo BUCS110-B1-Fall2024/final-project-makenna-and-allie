@@ -50,12 +50,22 @@ class Controller:
                         maze_screen.fill('black')
                         grid = Maze("white", maze_screen)
                         grid.drawRect()
+<<<<<<< HEAD
                         tom = Character(maze_screen)
+=======
+                        self.character.set_color("blue")
+                        #screen = pygame.display.set_mode((1200,600))
+                        self.screen.fill('black')
+                        self.grid.drawRect()
+                        self.character.set_color("blue")
+>>>>>>> be0fc92b76070771ee0fbe265a7bc0a9f09ba7f6
                         pygame.display.flip()
                     
         #2. detect collisions and update models, ask character where
         # to move, etc.
-        
+        if self.grid.check4rectangles(self.character.rect):
+            if self.current_lives.lose_game():
+                self.running = False
         #3. Redraw next frame
         
         #4. Display next frame
