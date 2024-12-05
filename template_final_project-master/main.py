@@ -1,5 +1,5 @@
 import pygame
-from Setup
+from src.Setup import Setup
 from src.character import Character
 #import your controller
 
