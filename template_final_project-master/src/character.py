@@ -6,9 +6,11 @@ class Character:
         args: 
         screen (display)- screen of the maze
         """
-        self.turt = turtle.Turtle()
-        self.turtle.goto(0, 0)
+        self.turtle = turtle.Turtle()
         self.screen = screen
+        self.turtle.penup()
+        self.turtle.goto(0, -100)
+        self.speed = 5
         
         self.screen.listen()
         self.screen.onkey(self.move_forward, "Up")
@@ -16,39 +18,31 @@ class Character:
         self.screen.onkey(self.move_left, "Left")
         self.screen.onkey(self.move_right, "Right")
         
+        self.move_forward()
+    
     def move_forward(self):
-        """ Moves character forward 1
+        """ Moves character forward repeatedly
+        args: None
+        return: None
+        """
+        self.turtle.forward(self.speed)
+        self.screen.ontimer(self.move_forward, 30)
+        
+    def move_up(self):
+        """ Moves character up 1
         args: None
         return: None
         """
         self.turtle.setheading(90)
-        self.turtle.forward(1)
 
-    def move_backwards(self):
-        """ Moves character back 1
-            args: None
-            return: None
-            """
+    def move_down(self):
+        """ Moves character down 1
+        args: None
+        return: None
+        """
         self.turtle.setheading(270)
-        self.turtle.forward(1)
-
-    def move_left(self):
-        """ Moves character left 1
-        args: None
-        return: None
-        """
-        self.turtle.setheading(180)
-        self.turtle.forward(1)
-
-    def move_right(self):
-        """ Moves character right 1
-        args: None
-        return: None
-        """
-        self.turtle.setheading(0)
-        self.turtle.forward(1)
 
     #screen = turtle.Screen()
     #character = Character(screen)
     #screen.mainloop()
-            
+    
