@@ -20,7 +20,7 @@ class Controller:
         self.begin = Setup("black", self.screen)
         self.grid = Maze("white", self.screen)
         
-        self.character = Character(self.screen)
+        #self.character = Character(self.screen)
         
         self.running = True
         
@@ -44,14 +44,13 @@ class Controller:
                     self.running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
-                    rect = pygame.Rect(50, 450, 545, 200)
+                    rect = pygame.Rect(50, 250, 545, 200)
                     if rect.collidepoint(pos):
-                        screen = pygame.display.set_mode((1200,800))
-                        screen.fill('black')
-                        grid = Maze("white", screen)
+                        maze_screen = pygame.display.set_mode((1200,800))
+                        maze_screen.fill('black')
+                        grid = Maze("white", maze_screen)
                         grid.drawRect()
-                        tom = Character(screen)
-                        tom.set_color("blue")
+                        tom = Character(maze_screen)
                         pygame.display.flip()
                     
         #2. detect collisions and update models, ask character where
