@@ -20,7 +20,7 @@ class Controller:
         returns: string - if you won the game
         """
         #1- Handle events
-        screen = pygame.display.set_mode((1200,1200))
+        screen = pygame.display.set_mode((500,500))
         pygame.display.set_caption('Maze')
         begin = setup.Setup("black", screen)
         running = True
@@ -33,11 +33,14 @@ class Controller:
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    screen = pygame.display.set_mode((1200,1200))
-                    screen.fill('black')
-                    grid = maze.Maze(5,5, screen, 50)
-                    grid.drawGrid()
-                    pygame.display.flip()
+                    pos = pygame.mouse.get_pos()
+                    rect = pygame.Rect(50, 450, 545, 200)
+                    if rect.collidepoint(pos):
+                        screen = pygame.display.set_mode((500,500))
+                        screen.fill('black')
+                        grid = maze.Maze(5,5, screen, 100,"white")
+                        grid.drawGrid()
+                        pygame.display.flip()
                     
                     
                     
