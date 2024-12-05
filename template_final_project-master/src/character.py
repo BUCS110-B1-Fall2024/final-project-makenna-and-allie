@@ -14,33 +14,38 @@ class Character:
         self.y = 10
         pygame.draw.rect(self.screen, self.color, (10,self.screen.get_height()/2, self.x, self.y))
         
-        self.screen.listen()
-        self.screen.onkey(self.move_forward, "Up")
-        self.screen.onkey(self.move_backwards, "Down")
-        self.screen.onkey(self.move_left, "Left")
-        self.screen.onkey(self.move_right, "Right")
+        self.gravity = 1
+        self.velocity = 0
+        self.jump_strength = -15
+        self.is_jumping = False
         
-        self.move_forward()
-    
+    def create_character(self):
+        pygame.draw.rect(self.screen, self.color, self.rect)
+        
     def move_forward(self):
         """ Moves character forward repeatedly
         args: None
         return: None
         """
-        self.turtle.forward(self.speed)
-        self.screen.ontimer(self.move_forward, 30)
-        
+        self.velocity += self.gravity
+        self.rect.y += self.velocity
+
+        if self.rect.bottom > self.screen.get_height():
+            self.rect.bottom = self.screen.get_height()
+
+        if self.rect.top < 0:
+            self.rect.top = 0
+            
     def move_up(self):
         """ Moves character up 1
         args: None
         return: None
         """
-        self.turtle.setheading(90)
+        if not self.is_jumping: 
+            self.velocity = self.jump_strength
+            self.is_jumping = True
 
-    def move_down(self):
-        """ Moves character down 1
-        args: None
-        return: None
-        """
-        self.turtle.setheading(270)
+
+    #def redraw(self):
+        
 
