@@ -2,25 +2,25 @@ import turtle
 import pygame
 
 class Character:
-    def __init__ (self, screen):
+    def __init__ (self, screen, color):
         """ Initializes character (turtle) that will play game
         args: 
-        screen (display)- screen of the maze
+        screen (display) - screen of the maze
+        color (string) - color of character
         """
-        
         self.screen = screen
-        self.turtle = pygame.draw.rect(self.screen, 'green', pygame.Rect(10, 10, 50, 50))
-        #self.turtle.penup()
-        #self.turtle.goto(0, -100)
-        #self.speed = 5
+        self.color = color
+        self.x = 10
+        self.y = 10
+        pygame.draw.rect(self.screen, self.color, (10,self.screen.get_height()/2, self.x, self.y))
         
-        #self.screen.listen()
-        #self.screen.onkey(self.move_forward, "Up")
-        #self.screen.onkey(self.move_backwards, "Down")
-        #self.screen.onkey(self.move_left, "Left")
-        #self.screen.onkey(self.move_right, "Right")
+        self.screen.listen()
+        self.screen.onkey(self.move_forward, "Up")
+        self.screen.onkey(self.move_backwards, "Down")
+        self.screen.onkey(self.move_left, "Left")
+        self.screen.onkey(self.move_right, "Right")
         
-        #self.move_forward()
+        self.move_forward()
     
     def move_forward(self):
         """ Moves character forward repeatedly
@@ -44,7 +44,3 @@ class Character:
         """
         self.turtle.setheading(270)
 
-    #screen = turtle.Screen()
-    #character = Character(screen)
-    #screen.mainloop()
-    
