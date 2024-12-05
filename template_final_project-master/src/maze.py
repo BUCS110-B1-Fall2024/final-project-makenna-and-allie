@@ -1,29 +1,21 @@
 import pygame
 from src import cell
+import random
+
 
 class Maze:
     
-    def __init__(self, rows, cols, screen, size, border):
-        self.row = rows
-        self.col = cols
+    def __init__(self, color, screen ):
+        self.color = color
         self.screen = screen
-        self.color = 'blue'
-        self.bord_col = border
-        self.size = size
-        self.dir = 90
-        self.list = []
         
-    def drawGrid(self):   
+    def drawRect(self):   
         
-        num = 1
-        grid_size = int((self.screen.get_height() - (2 * self.size)))
-        for x in range(0, self.screen.get_width(), self.size):
-            for y in range(0, grid_size, self.size):
-                box = cell.Cell(x, y, self.screen, False, num, self.size)
-                num += 1
-                self.list.append(box)
-                box.draw()
-                box.get_num()
+        rand = random.randint(0,100)
+        rect = cell.Cell(10, 0, self.screen, rand)
+            
+        
+                
                 
                 
                 
