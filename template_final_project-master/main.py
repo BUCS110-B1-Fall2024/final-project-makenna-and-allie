@@ -1,8 +1,11 @@
 import pygame
-#import your controller
+from src import controller  #import your controller
+
 
 def main():
     pygame.init()
+    control = controller.Controller()
+    control.mainloop()
     #Create an instance on your controller object
     #Call your mainloop
     
