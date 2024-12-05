@@ -39,8 +39,8 @@ class Controller:
                         screen.fill('black')
                         grid = maze.Maze("white", screen)
                         grid.drawRect()
-                        #tom = character.Character(screen)
-                        #tom.set_color("blue")
+                        tom = character.Character(screen)
+                        tom.set_color("blue")
                         pygame.display.flip()
                     
             
