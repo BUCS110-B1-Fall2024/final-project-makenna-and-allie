@@ -1,4 +1,5 @@
 import turtle
+import pygame
 
 class Character:
     def __init__ (self, screen):
@@ -8,9 +9,9 @@ class Character:
         """
         self.turtle = turtle.Turtle()
         self.screen = screen
-        self.turtle.penup()
-        self.turtle.goto(0, -100)
-        self.speed = 5
+        #self.turtle.penup()
+        #self.turtle.goto(0, -100)
+        #self.speed = 5
         
         self.screen.listen()
         self.screen.onkey(self.move_forward, "Up")
