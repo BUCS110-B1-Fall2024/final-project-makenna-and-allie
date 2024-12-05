@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
+#sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
 import pygame 
 from src.character import Character 
 from src.setup import Setup
@@ -17,8 +17,8 @@ class Controller:
         self.screen = pygame.display.set_mode((1200,600))
         pygame.display.set_caption('Maze')
         
-        self.begin = Setup.Setup("black", self.screen)
-        self.grid = Maze.Maze("white", self.screen)
+        self.begin = Setup("black", self.screen)
+        self.grid = Maze("white", self.screen)
         
         self.character = Character(self.screen)
         
@@ -48,9 +48,9 @@ class Controller:
                     if rect.collidepoint(pos):
                         screen = pygame.display.set_mode((1200,800))
                         screen.fill('black')
-                        grid = maze.Maze("white", screen)
+                        grid = Maze("white", screen)
                         grid.drawRect()
-                        tom = character.Character(screen)
+                        tom = Character(screen)
                         tom.set_color("blue")
                         #screen = pygame.display.set_mode((1200,600))
                         self.screen.fill('black')
