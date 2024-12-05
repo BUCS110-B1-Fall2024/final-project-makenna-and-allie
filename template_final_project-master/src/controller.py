@@ -1,6 +1,6 @@
 import pygame
 from character import Character 
-from Setup import Setup
+from setup import Setup
 from maze import Maze
 
 class Controller:
@@ -11,6 +11,14 @@ class Controller:
         Initializes objects and resoruces required to run program
         args: None
         """
+        pygame.init()
+        self.screen = pygame.display.set_mode((1200,600))
+        pygame.display.set_caption('Maze')
+        
+        self.begin = Setup.Setup("black", self.screen)
+        self.grid = Maze.Maze("white", self.screen)
+        
+        self.character = Character(self.screen)
         
     def mainloop(self):
         """ Runs the game, using the Character and Trivia classes
@@ -18,13 +26,10 @@ class Controller:
         returns: string - if you won the game
         """
         #1- Handle events
-        screen = pygame.display.set_mode((1200,600))
-        pygame.display.set_caption('Maze')
-        begin = Setup.Setup("black", screen)
         running = True
         
-        begin.create()
-        grid = Maze.Maze("white", screen)
+        self.begin.create()
+        #grid = Maze.Maze("white", screen)
         grid.drawRect()
         pygame.display.flip()
         
