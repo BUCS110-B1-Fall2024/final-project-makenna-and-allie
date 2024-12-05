@@ -1,7 +1,5 @@
 import pygame
 from src import cell
-import random
-
 
 class Maze:
     

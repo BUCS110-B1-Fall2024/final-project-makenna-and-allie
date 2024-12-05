@@ -1,5 +1,4 @@
 import pygame
-from src import controller
 #import your controller
 
 def main():
@@ -7,9 +6,12 @@ def main():
     control = controller.Controller()
     control.mainloop()
     #Create an instance on your controller object
-    #Call your mainloops
-    ##mazey.move_left()
-    #running = True 
+    #Call your mainloop
+    begin = Setup.Setup("grey")
+    begin.create()
+    mazey = Character(0,0)
+    mazey.move_left()
+    running = True 
 
     #while running:
             

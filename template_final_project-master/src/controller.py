@@ -1,10 +1,11 @@
 import pygame
-from src import character 
-from src import trivia 
-from src import setup
-from src import maze
+from character import Character 
+from Setup import Setup
+from maze import Maze
 
 class Controller:
+    from character import Character
+    from trivia import Trivia
     
     def __init__(self):
         """
@@ -20,7 +21,7 @@ class Controller:
         #1- Handle events
         screen = pygame.display.set_mode((1200,600))
         pygame.display.set_caption('Maze')
-        begin = setup.Setup("black", screen)
+        begin = Setup.Setup("black", screen)
         running = True
         
         begin.create()
@@ -31,21 +32,24 @@ class Controller:
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit().exit()
+                    pygame.quit() exit()
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
                     rect = pygame.Rect(50, 450, 545, 200)
-                    #if rect.collidepoint(pos):
-                        #screen = pygame.display.set_mode((1200,600))
-                        #screen.fill('black')
-                        
-                        #pygame.display.flip()
+                    if rect.collidepoint(pos):
+                        screen = pygame.display.set_mode((500,500))
+                        screen.fill('black')
+                        grid = maze.Maze(5,5, screen, 100,"white")
+                        grid.drawGrid()
+                        pygame.display.flip()
                     
             
         #2. detect collisions and update models, ask character where
         # to move, etc.
+        
         #3. Redraw next frame
+        
         #4. Display next frame
         #pygame.display.flip()
         
