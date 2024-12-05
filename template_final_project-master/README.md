@@ -12,7 +12,7 @@ Makenna and Allie
 
 ## Project Description
 
-In the Maze Run, we will be moving a character through a complex maze. The maze will have hidden features that take away the 'lives' of the character, including when the character goes down dead ends and spontaneous rocks/items in the way of the character. Along with looking out for these dangers, the user will need to answer random trivia questions displayed on the screen every 30 seconds and if they get it wrong they lose a 'life'. Once 3 'lives' are lost, the game will automatically end through the quit program. The character will be controlled by the user through the keyboard, the arrows will be used to move the character through the maze and the letters/numbers will be used to answer the trivia questions.
+In the Maze Run, we will be moving a character through a vertical maze of randomly sized rectangles. The user needs to use the up/down keyboard arrows to get through the maze of rectangles. The maze will take away the 'lives' of the character if the character touches one of the rectangles. Once 2 'lives' are lost, the game will automatically end through the quit program.
 
 ***    
 
@@ -33,27 +33,25 @@ In the Maze Run, we will be moving a character through a complex maze. The maze 
 1. Start menu
 2. End game display
 3. Moveable character (with keyboard arrows)
-4. Trivia display
+4. Randomized barriers (rectangles)
 5. life system (with quit feature)
 
 ### Classes
 
-- Character: creates a character (turtle object) that will move throughout the maze based on user input. Has functions to move
-forward, backward, right and left.
-- Trivia: Creates a trivia object, that will be displayed throughout certain checkpoints in the maze, uses user input and contains a function that checks if the input is correct. 
+- Character: creates a character (turtle object) that will move throughout the maze based on user actions through the keyboard arrows. Has functions to move based on the keys hit: up or down.
+- Maze: creates a maze of random rectangles that the character will have to move through. Several rectangles will be present but different widths and heights will be sued each time.
+- Life: determines how many 'lives' the charcter has left, based on if the character has touched any of the rectangles. The character will have 2 lives, if a rectangle is touched twice in one round, the character automatically 'dies'. 
 
 ## ATP
 
 |Test Description 1:   
 
-    Tests whether or not the sprite/character moves with  the use of all 4 cursor control key.
+    Tests whether or not the sprite/character moves with  the use of the 2 cursor control keys.
 
 Procedure:
 
     Press up key,  Expected Results: Character moves up
     Press down key,  Expected Results: Character moves down
-    Press right key,  Expected Results: Character moves right
-    Press left key,  Expected Results: Character moves left
 
 Test Description 2:   
 
@@ -62,8 +60,6 @@ Test Description 2:
 Procedure:
 
     Click the begin button, Expected: The maze screen appears and the maze begins.
-    Click the level button, Expected: Level adusjts from easy to hard. 
-    Click the theme buttons, Expected: Background image of the maze changes.
 
 Test Description 3: 
 
@@ -76,7 +72,7 @@ Procedure:
 
 Test Desription 4:
 
-    Make sure the sprite/character loses a live when it runs into the maze border.
+    Make sure the sprite/character loses a live when it runs into the maze's rectangle.
 
 Procedure:
 
