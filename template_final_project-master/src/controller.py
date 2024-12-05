@@ -5,7 +5,6 @@ from maze import Maze
 
 class Controller:
     from character import Character
-    from trivia import Trivia
     
     def __init__(self):
         """
@@ -25,14 +24,14 @@ class Controller:
         running = True
         
         begin.create()
-        grid = maze.Maze("white", screen)
+        grid = Maze.Maze("white", screen)
         grid.drawRect()
         pygame.display.flip()
         
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit() exit()
+                    #pygame.quit() exit()
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
@@ -40,7 +39,7 @@ class Controller:
                     if rect.collidepoint(pos):
                         screen = pygame.display.set_mode((500,500))
                         screen.fill('black')
-                        grid = maze.Maze(5,5, screen, 100,"white")
+                        grid = Maze.Maze(5,5, screen, 100,"white")
                         grid.drawGrid()
                         pygame.display.flip()
                     
@@ -52,6 +51,6 @@ class Controller:
         
         #4. Display next frame
         #pygame.display.flip()
-        
+    mainloop()
     
     
