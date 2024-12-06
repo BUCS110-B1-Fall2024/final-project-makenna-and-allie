@@ -5,7 +5,7 @@ class Character(pygame.sprite.Sprite):
     def __init__ (self, screen, color, x, y):
         """ Initializes character (turtle) that will play game
         args: 
-        screen (display) - screen of the maze
+        screen (display) - displays the screen
         color (string) - color of character
         """
         super().__init__()
@@ -29,8 +29,13 @@ class Character(pygame.sprite.Sprite):
     
         
     def create_character(self):
+        """ Draws the rectangle that will be the character
+        args: None
+        returns: None
+        """
         pygame.draw.rect(self.screen, self.color, self.rect)
         
+<<<<<<< HEAD
     def move(self,key):
         """ Moves character forward repeatedly
         args: None
@@ -42,5 +47,33 @@ class Character(pygame.sprite.Sprite):
             self.rect.y -= 15  # Move up
         if key[pygame.K_DOWN]:
             self.rect.y += 15   # Move down
+=======
+>>>>>>> 4acec5b9be21dddafddba2f8b284b38454281166
+    def move_forward(self):
+        """ Moves character forward repeatedly, using gravity
+        args: None
+        return: None
+        """
+        self.velocity += self.gravity
+        self.rect.y += self.velocity
+
+        if self.rect.bottom > self.screen.get_height():
+            self.rect.bottom = self.screen.get_height()
+
+        if self.rect.top < 0:
+            self.rect.top = 0
+            
+    def move_up(self):
+        """ Moves character up, in a jumping motion
+        args: None
+        return: None
+        """
+        if not self.is_jumping: 
+            self.velocity = self.jump_strength
+            self.is_jumping = True
+
+
+    #def redraw(self):
+>>>>>>> 9700cb03bb4bc5fea2fc61c972355a22f0778b09
         
 
