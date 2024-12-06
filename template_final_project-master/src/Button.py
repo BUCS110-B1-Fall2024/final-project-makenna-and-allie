@@ -3,15 +3,14 @@ import pygame
 
 
 class Button:
-    
     def __init__(self, x, y, width, height, color, screen, text, txtcolor, size):
         """ Initializes the Button class, which will be used to outline
         the beginning/setting screen of the game
-        args: x (int) - starting x-coord of character/rect
-        y (int) - starting y-coord of character/rect
-        width (int) - width of character/rect
-        height (int) - height of character/rect
-        color (string) - color of character/rect
+        args: x (int) - starting x-coord of box
+        y (int) - starting y-coord of box
+        width (int) - width of bos
+        height (int) - height of box
+        color (string) - color of box
         screen (display) - displays the screen
         text (string) - what text will say
         txtcolor (string) - text color
