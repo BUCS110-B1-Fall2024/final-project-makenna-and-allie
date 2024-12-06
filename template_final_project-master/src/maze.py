@@ -6,32 +6,31 @@ import math
 
 class Maze:
     
-    def __init__(self, color, screen, current_lives):
+    def __init__(self, color, screen):
         self.color = color
         self.screen = screen
-        self.current_lives = current_lives
-        self.ractangles = []
+        self.cells = []
+        self.generate_maze()
         
-    def drawRect(self):   
-        for box in range(150,1150, 150):
+    def generate_maze(self):   
+        """for box in range(150,1150, 150):
             rand = random.randint(0, 500)
             rect = Cell(box, 0, self.screen, rand)
             rect.draw()
+            """
+        height_options = [100, 150, 200, 250, 300, 350]
+        
+        for box in range(150,1150, 150):
+            rand = random.choice(height_options)
+            rect = Cell(box, 0, self.screen, rand)
+            self.cells.append(rect)
     
-    def check4rectangles(self, char_rect):
-        for rect in self.rectangles:
-            if char_rect.colliderect(rect.rect):
-                self.current_lives.lose_life()
+    def draw_maze(self):
+        for cell in self.cells:
+            cell.draw()
+    
+    def collision_checker(self, char_rect):
+        for cell in self.cells:
+            if char_rect.colliderect(cell.rect):
                 return True
         return False
-                
-                
-                
-       # current_x = 0
-        #current_y = 0
-        #box = cell.Cell(current_x, current_y, self.screen, True)
-        #box.draw(self.size)
-    
-            
-            
-        

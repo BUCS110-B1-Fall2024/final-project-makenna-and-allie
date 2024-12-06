@@ -14,7 +14,7 @@ class Button:
         self.size = size
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
         self.screen = screen
-        self.text_font = pygame.font.SysFont("Arial", 50)
+        self.text_font = pygame.font.SysFont("Arial", 20)
         self.text = text
         self.txt_color = txtcolor
         

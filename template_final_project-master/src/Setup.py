@@ -17,23 +17,13 @@ class Setup:
         
         pygame.display.flip()
 
-        button1 = Button(50, 30, 1100, 200, 'blue', self.screen, "Directions:", 'red', 5)
+        button1 = Button(50, 50, 1100, 255, 'blue', self.screen, "Get the Purple rect to the orange with out hitting the white!", 'red', 5)
         button1.draw()
         
         pygame.display.flip()
 
-        button2 = Button(50, 250, 545, 200, 'grey', self.screen, "Click to begin!", 'red', 5)
+        button2 = Button(50, 325, 1100, 225, 'grey', self.screen, "Click to begin!", 'red', 5)
         
         button2.draw()
 
         pygame.display.flip()
-
-        button3 = Button(605, 250, 182, 200, 'white', self.screen, "Easy", "white", 5)
-        button4 = Button(787, 250, 182, 200, 'white', self.screen, "Medium", "white", 5)
-        button5 = Button(968, 250, 182, 200, 'white', self.screen, "Hard", "white", 5)
-        button3.draw()
-        button4.draw()
-        button5.draw()
-
-        pygame.display.flip()
-                    
