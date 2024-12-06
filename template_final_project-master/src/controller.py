@@ -31,7 +31,9 @@ class Controller:
         
         
     def mainloop(self):
-        
+        """ Runs main loop that will be called in main.py
+        args: None
+        """
         self.begin.create()
         pygame.display.flip()
         
@@ -53,7 +55,6 @@ class Controller:
                     print(self.tom.rect.y)
                     print(self.tom.rect.x)
                     self.sprite.update()
-                    #pygame.display.flip()
                     self.screen.fill('black') # clear screen
                     self.grid.draw_maze()#redraws maze
                     pygame.draw.rect(self.screen, "orange", self.end_block)
@@ -77,35 +78,40 @@ class Controller:
 
         
     def if_begin(self):
-       pos = pygame.mouse.get_pos()
-       rect = pygame.Rect(50, 250, 545, 200)
-       
-       if rect.collidepoint(pos):
-                        self.screen.fill('black')
-       pygame.display.flip()
+        """ If the start game is clicked, this function begins the code
+        for the game to run/display
+        args: None
+        returns: None
+        """
+        pos = pygame.mouse.get_pos()
+        rect = pygame.Rect(50, 250, 545, 200)
+        if rect.collidepoint(pos):
+            self.screen.fill('black')
+        pygame.display.flip()
        
     def create_maze(self):
-        #self.sprite.update()
+        """ This uses Maze to draw the random maze for
+        a round of the game
+        args: None
+        returns: None
+        """
         self.screen.fill('black') # clear screen
         self.grid.draw_maze() # redraw rect
-        #self.sprite.draw(self.screen)  # Draw sprite on screen
         pygame.display.flip()
         
     def check_collision(self):
-        """for y in range(self.tom.rect.top, self.tom.rect.bottom):
-            for x in range(self.tom.rect.left, self.tom.rect.right):
-                color_at_pixel = self.tom.screen.get_at((x, y))
-                #print(color_at_pixel)
-                # Check if the color at the current pixel matches the target color (purple)
-                if color_at_pixel == (255, 255, 255, 255):
-                    return True  # Collision detected
-
-        return False  # No collision found
+        """ Checks if the character has ran into one of the maze barriers/rects
+        args: None
+        returns: None
         """
         char_rect = self.tom.rect
         return self.grid.collision_checker(char_rect)
     
     def check_end(self):
+        """ If the ending orange box is reached, the game is over
+        args: None
+        returns: None
+        """
         if self.tom.rect.x == 1185 and self.tom.rect.y == 300:
             return True
             
