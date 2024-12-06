@@ -5,8 +5,11 @@ import pygame
 from src.character import Character 
 from src.setup import Setup
 from src.maze import Maze
+from src.button import Button
+
 
 class Controller:
+    
     
     def __init__(self):
         """
@@ -16,89 +19,99 @@ class Controller:
         pygame.init()
         self.screen = pygame.display.set_mode((1200,600))
         pygame.display.set_caption('Maze')
-        
         self.begin = Setup("black", self.screen)
-<<<<<<< HEAD
-        self.grid = Maze("white", self.screen, 3)
-=======
-        self.grid = Maze("white", self.screen)
-        self.character = Character(self.screen, "pink")
->>>>>>> 4acec5b9be21dddafddba2f8b284b38454281166
+        self.running = True 
+        self.tom = Character(self.screen , 'blue', 50, 50)
+        self.sprite = pygame.sprite.Group()
+        self.sprite.add(self.tom)
+        self.lose_button = Button(self.screen.get_width()/2- (500/2), self.screen.get_height()/2 - (200/2), 500, 200, 'red', self.screen, "You lost, Try again!", "Purple", 5)
+        self.win_button = Button(self.screen.get_width()/2 - (500/2), self.screen.get_height()/2 - (200/2) , 500, 200, 'green', self.screen, "You Won, Congrats!", "Purple", 5)
+        self.grid = Maze("White", self.screen)
+        self.end_block = pygame.Rect(self.screen.get_width() - 15, 300, 20, 20)
         
-        self.gravity = 1
-        self.jump_speed = -15
-        self.velocity = 0
-        self.game_over = False
-        self.score = 0
-        
-        self.running = True
         
     def mainloop(self):
-        """ Runs the game, using the Character and Trivia classes
-        args: None
-        returns: string - if you won the game
-        """
-        #1- Handle events
-        """screen = pygame.display.set_mode((1200,600))
-        pygame.display.set_caption('Maze')
-        begin = setup.Setup("black", screen)
-        """
+        
         self.begin.create()
         pygame.display.flip()
         
+        
         while self.running:
+            #clock.tick(FPS)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit() 
                     self.running = False
-<<<<<<< HEAD
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    pos = pygame.mouse.get_pos()
-                    rect = pygame.Rect(50, 250, 545, 200)
-                    if rect.collidepoint(pos):
-                        maze_screen = pygame.display.set_mode((1200,800))
-                        maze_screen.fill('black')
-                        self.grid.drawRect()
-                        tom = Character(maze_screen, 'purple', 50, 50)
-                        sprite = pygame.sprite.Group()
-                        sprite.add(tom)
-                        sprite.update()
-                        sprite.draw(maze_screen)
+                    self.if_begin()
+                    self.create_maze()
+                    pygame.draw.rect(self.screen, "orange", self.end_block)
+                    self.sprite.draw(self.screen)
+                if event.type == pygame.KEYDOWN:
+                    key = pygame.key.get_pressed()
+                    self.tom.move(key)
+                    print(self.tom.rect.y)
+                    print(self.tom.rect.x)
+                    self.sprite.update()
+                    #pygame.display.flip()
+                    self.screen.fill('black') # clear screen
+                    self.grid.draw_maze()#redraws maze
+                    pygame.draw.rect(self.screen, "orange", self.end_block)
+                    self.sprite.update()
+                    pygame.display.flip()
+                    self.sprite.draw(self.screen)  # Draw sprite on screen
+                
+                    if self.check_collision():
+                        self.screen.fill('black')
+                        self.lose_button.draw()
                         pygame.display.flip()
-                    
-        #2. detect collisions and update models, ask character where
-        # to move, etc.
-          #if self.grid.check4rectangles(self.character.rect):
-            #if self.current_lives.lose_game():
-                #self.running = False
-=======
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:  
-                        self.character.move_up()
                         
-        self.character.move_forward
-        
-        #2. detect collisions and update models, ask character where
-        # to move, etc.
-        self.grid.drawRect()
-        if self.grid.check4rectangles(self.character.rect):
-            if self.current_lives.lose_game():
-                self.running = False
-           
-        self.screen.fill(0,0,0)
-        self.character.create_character()
-        self.grid.drawRect()
-        self.curent_lives.display()
-        
-        pygame.display.flip()
-        
->>>>>>> 4acec5b9be21dddafddba2f8b284b38454281166
-        #3. Redraw next frame
-        
-        
-        pygame.display.flip()
-        #4. Display next frame
-        #pygame.display.flip()
- 
+                    if self.check_end():
+                        self.screen.fill('black')
+                        self.win_button.draw()
+                        pygame.display.flip()
+                        
+                        
+                self.sprite.update()
+                pygame.display.flip()
 
+        
+    def if_begin(self):
+       pos = pygame.mouse.get_pos()
+       rect = pygame.Rect(50, 250, 545, 200)
+       
+       if rect.collidepoint(pos):
+                        self.screen.fill('black')
+       pygame.display.flip()
+       
+    def create_maze(self):
+        #self.sprite.update()
+        self.screen.fill('black') # clear screen
+        self.grid.draw_maze() # redraw rect
+        #self.sprite.draw(self.screen)  # Draw sprite on screen
+        pygame.display.flip()
+        
+    def check_collision(self):
+        """for y in range(self.tom.rect.top, self.tom.rect.bottom):
+            for x in range(self.tom.rect.left, self.tom.rect.right):
+                color_at_pixel = self.tom.screen.get_at((x, y))
+                #print(color_at_pixel)
+                # Check if the color at the current pixel matches the target color (purple)
+                if color_at_pixel == (255, 255, 255, 255):
+                    return True  # Collision detected
+
+        return False  # No collision found
+        """
+        char_rect = self.tom.rect
+        return self.grid.collision_checker(char_rect)
+    
+    def check_end(self):
+        if self.tom.rect.x == 1185 and self.tom.rect.y == 300:
+            return True
+            
+            
+        
+            
+
+    
     
